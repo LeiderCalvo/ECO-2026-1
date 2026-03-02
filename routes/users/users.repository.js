@@ -1,6 +1,6 @@
 const users = [{ id: 2 }, { id: 7 }];
 
-class UsersRepository {
+export class UsersRepository {
     getAllUsers = () => {
         return users
     }
@@ -9,6 +9,3 @@ class UsersRepository {
         return users.find( (user) =>user.id === id)
     }
 }
-
-
-export default new UsersRepository()

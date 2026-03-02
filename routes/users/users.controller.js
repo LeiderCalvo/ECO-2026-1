@@ -1,15 +1,18 @@
-import UsersRepository from "./users.repository.js"
+export class UsersController {
 
-class UsersController {
+    constructor(repository) {
+        this.repository = repository
+    }
+
     getAllUsers = (req, res) => {
         res.send({ 
-            users : UsersRepository.getAllUsers()
+            users : this.repository.getAllUsers()
         });
     }
     
     getUserById = (req, res)=>{
         const id = Number(req.params.id)
-        const userIndividual = UsersRepository.getUserById(id)
+        const userIndividual = this.repository.getUserById(id)
     
         if(!userIndividual){
             res.send("Lo sentimos, no lo encontramos")
@@ -19,6 +22,4 @@ class UsersController {
         res.send(userIndividual)
     }
 }
-
-export default new UsersController()
 

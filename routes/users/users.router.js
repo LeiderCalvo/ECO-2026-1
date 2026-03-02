@@ -1,10 +1,14 @@
 import express from "express"
-import UsersController from "./users.controller.js"
+import {UsersController} from "./users.controller.js"
+import {UsersRepository} from "./users.repository.js"
+
+const repository = new UsersRepository()
+const controller = new UsersController(repository)
 
 const router = express.Router()
 
-router.get("/", UsersController.getAllUsers)
+router.get("/", controller.getAllUsers)
 
-router.get("/:id", UsersController.getUserById)
+router.get("/:id", controller.getUserById)
 
 export default router
