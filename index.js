@@ -1,6 +1,8 @@
 import express from "express"
 import UsersRouter from "./routes/users/users.router.js"
 
+const PORT = 8080
+
 const app = express()
 
 app.use(express.json())
@@ -10,4 +12,6 @@ app.get("/", (req, res) => {
     res.send("hola sí funciona")
 })
 
-app.listen(8080)
+app.listen(PORT, () => {
+    console.log("listening on port: ", PORT);
+})

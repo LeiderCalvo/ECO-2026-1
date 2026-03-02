@@ -1,14 +1,14 @@
 const users = [{ id: 2 }, { id: 7 }];
 
-const getAllUsers = () => {
-    return users
+class UsersRepository {
+    getAllUsers = () => {
+        return users
+    }
+    
+    getUserById = (id) => {
+        return users.find( (user) =>user.id === id)
+    }
 }
 
-const getUserById = (id) => {
-    return users.find( (user) =>user.id === id)
-}
 
-export default {
-    getAllUsers,
-    getUserById
-}
+export default new UsersRepository()
