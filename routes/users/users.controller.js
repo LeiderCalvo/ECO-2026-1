@@ -4,15 +4,15 @@ export class UsersController {
         this.repository = repository
     }
 
-    getAllUsers = (req, res) => {
+    getAllUsers = async (req, res) => {
         res.send({ 
-            users : this.repository.getAllUsers()
+            users : await this.repository.getAllUsers()
         });
     }
     
-    getUserById = (req, res)=>{
+    getUserById = async (req, res)=>{
         const id = Number(req.params.id)
-        const userIndividual = this.repository.getUserById(id)
+        const userIndividual = await this.repository.getUserById(id)
     
         if(!userIndividual){
             res.send("Lo sentimos, no lo encontramos")
